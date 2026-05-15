@@ -1,0 +1,70 @@
+/* nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; background: rgba(5,10,8,0.8); backdrop-filter: blur(12px); transition: background 0.3s; }
+nav.scrolled { background: rgba(5,10,8,0.95); }
+.nav-logo { font-size: 18px; font-weight: 700; color: var(--accent); }
+.nav-logo span { color: var(--text-primary); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--text-secondary); font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-hamburger { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.mobile-menu { position: absolute; top: 64px; left: 0; right: 0; background: rgba(5,10,8,0.95); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+@media (max-width: 768px) { .nav-links { display: none; } .nav-hamburger { display: block; } } */
+
+
+nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 0 24px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    
+    /* --- GLASSMORPHISM EFFECT --- */
+    background: rgba(10, 20, 15, 0.15); /* Much more transparent base with slight green tint */
+    backdrop-filter: blur(24px) saturate(180%); /* Stronger blur + saturation for modern glass */
+    -webkit-backdrop-filter: blur(24px) saturate(180%); /* Safari support */
+    
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1); /* Subtle emerald border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Soft shadow to lift it off the canvas */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Slightly more solid when scrolling, but still clearly glassy */
+nav.scrolled { 
+    background: rgba(5, 10, 8, 0.15); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-logo { font-size: 18px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.nav-logo span { color: var(--text-primary); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { 
+    text-decoration: none; color: var(--text-secondary); 
+    font-size: 13px; font-weight: 500; text-transform: uppercase; 
+    letter-spacing: 0.5px; transition: color 0.2s; 
+}
+.nav-links a:hover { color: var(--accent); }
+
+.nav-hamburger { 
+    display: none; background: none; border: none; 
+    color: var(--text-primary); font-size: 24px; cursor: pointer; 
+}
+
+.mobile-menu { 
+    position: absolute; top: 64px; left: 0; right: 0; 
+    
+    /* Matching Glass Effect for Mobile Menu */
+    background: rgba(5, 10, 8, 0.5); 
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    
+    padding: 24px; display: flex; flex-direction: column; gap: 16px; 
+}
+.mobile-menu a { 
+    display: block; padding: 12px 0; text-decoration: none; 
+    color: var(--text-secondary); font-size: 15px; font-weight: 500; 
+    border-bottom: 1px solid rgba(16, 185, 129, 0.08); transition: color 0.2s; 
+}
+.mobile-menu a:hover { color: var(--accent); }
+
+@media (max-width: 768px) { 
+    .nav-links { display: none; } 
+    .nav-hamburger { display: block; } 
+}
